@@ -1,0 +1,227 @@
+EXAMPLE 1 :
+
+package main
+
+import "fmt"
+
+func main() {
+   fmt.Printf("Hello\tWorld!")
+}
+
+OUTPUT :
+
+Hello World!.
+
+EXAMPLE 2 :
+
+package main
+
+import "fmt"
+
+func main() {
+   const LENGTH int = 10
+   const WIDTH int = 5   
+   var area int
+
+   area = LENGTH * WIDTH
+   fmt.Printf("value of area : %d", area)   
+}
+
+OUTPUT :
+
+value of area : 50
+
+
+EXAMPLE 3 :
+
+package main
+
+import "fmt"
+
+const PI = 3.14
+
+func main() {
+    const PRA = "PRASANTHI"
+    fmt.Println("Hello", PRA)
+
+    fmt.Println("Happy", PI, "Day")
+
+    const Correct= true
+    fmt.Println("Go rules?", Correct)
+}
+
+OUTPUT:
+
+Hello PRASANTHI
+Happy 3.14 Day
+Go rules? true
+
+EXAMPLE 4 :
+
+package main
+
+import "fmt"
+
+func main() {
+    const A= "PRA"
+    var B = "PRASANTHI"
+    
+    // Concat strings.
+    var helloWorld = A+ " " + B
+    helloWorld += "!"
+    fmt.Println(helloWorld) 
+    
+    // Compare strings.
+    fmt.Println(A == "PRA")   
+    fmt.Println(B < A) 
+}
+
+OUTPUT :
+
+PRA PRASANTHI!
+true
+false
+
+EXAMPLE 5 :
+
+package main
+
+import "fmt"
+
+const Pi = 3.14
+
+func main() {
+ const trueConst = true
+    type myBool bool
+    var defaultBool = trueConst // allowed
+    var customBool myBool = trueConst // allowed
+    
+  //  defaultBool = customBool // not allowed
+
+    
+    fmt.Println(defaultBool)
+    fmt.Println(customBool)
+
+    
+}
+
+OUTPUT :
+
+true
+true
+
+EXAMPLE 6 :
+
+package main
+
+import "fmt"
+
+const PRODUCT string = "USA"
+const PRICE = 1000
+
+func main() {
+	fmt.Println(PRODUCT)
+	fmt.Println(PRICE)
+}
+
+OUTPUT :
+
+USA
+1000
+
+EXAMPLE 7 :
+
+package main
+
+import "fmt"
+
+const (
+	PRODUCT  = "Mobile"
+	QUANTITY = 50
+	PRICE    = 50.50
+	STOCK  = true
+)
+
+func main() {
+	fmt.Println(QUANTITY)
+	fmt.Println(PRICE)
+	fmt.Println(PRODUCT)
+	fmt.Println(STOCK)
+}
+
+OUTPUT :
+
+50
+50.5
+Mobile
+true
+
+EXAMPLE 8 :
+
+package main
+
+import "fmt"
+
+const Pi = 3.14
+
+func main() {
+	const World = "REDDY"
+	fmt.Println("Hello", World)
+	fmt.Println("Happy", Pi, "Day")
+
+	const Truth = true
+	fmt.Println("Go rules?", Truth)
+}
+
+OUTPUT :
+
+Hello REDDY
+Happy 3.14 Day
+Go rules? true
+
+EXAMPLE 9 :
+
+package main
+
+import "fmt"
+
+func main() {
+    type Myint int
+    const i1 Myint = 1
+    const i2 = Myint(2)
+    fmt.Printf("%T %v\n", i1, i1)
+    fmt.Printf("%T %v\n", i2, i2)
+}
+
+OUTPUT :
+
+main.Myint 1
+main.Myint 2
+
+EXAMPLE 10 :
+
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Printf("%T %v\n", 0, 0)
+    fmt.Printf("%T %v\n", 0.0, 0.0)
+    fmt.Printf("%T %v\n", 'x', 'x')
+    fmt.Printf("%T %v\n", 0i, 0i)
+}
+
+OUTPUT :
+
+int 0
+float64 0
+int32 120
+complex128 (0+0i)
+
+
+
+
+
+
+
+
