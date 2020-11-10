@@ -1,0 +1,380 @@
+EXAMPLE 1 :
+
+package main
+
+import "fmt"
+
+func main() {
+   /* local variable definition */
+   var a int = 500
+   var b int = 200
+   var ret int
+
+   /* calling a function to get max value */
+   ret = max(a, b)
+
+   fmt.Printf( "Max value is : %d\n", ret )
+}
+
+/* function returning the max between two numbers */
+func max(num1, num2 int) int {
+   /* local variable declaration */
+   var result int
+
+   if (num1 > num2) {
+      result = num1
+   } else {
+      result = num2
+   }
+   return result 
+}
+
+OUTPUT :
+
+Max value is : 500
+
+EXAMPLE 2 :
+
+package main
+
+import "fmt"
+
+func swap(x, y string) (string, string) {
+   return y, x
+}
+func main() {
+   a, b := swap("PRASANTHI", "REDDY")
+   fmt.Println(a, b)
+}
+
+OUTPUT :
+
+REDDY  PRASANTHI
+
+EXAMPLE 3 :
+
+package main
+
+import "fmt"
+
+func add(x int, y int) int {
+	return x + y
+}
+
+func main() {
+	fmt.Println(add(42, 13))
+}
+
+OUTPUT :
+
+55
+
+EXAMPLE 4 :
+
+package main
+import "fmt"
+
+
+func plus(a int, b int) int {
+
+    return a + b
+}
+
+
+func plusPlus(a, b, c int) int {
+    return a + b + c
+}
+func main() {
+
+    res := plus(1, 2)
+    fmt.Println("1+2 =", res)
+    res = plusPlus(1, 2, 3)
+    fmt.Println("1+2+3 =", res)
+}
+
+OUTPUT :
+
+1+2 = 3
+1+2+3 = 6
+
+EXAMPLE 5 :
+
+package main
+
+import "fmt"
+
+// SimpleFunction prints a message
+func SimpleFunction() {
+	fmt.Println("HELLO PRASANTHI")
+}
+
+func main() {
+	SimpleFunction()
+}
+
+OUTPUT :
+
+HELLO PRASANTHI
+
+EXAMPLE 6 :
+
+package main
+
+import "fmt"
+
+// Function accepting arguments
+func add(x int, y int) {
+	total := 0
+	total = x + y
+	fmt.Println(total)
+}
+
+func main() {
+	// Passing arguments
+	add(20, 30)
+}
+
+OUTPUT :
+
+50
+
+EXAMPLE 7 :
+
+package main
+
+import "fmt"
+
+// Function with int as return type
+func add(x int, y int) int {
+	total := 0
+	total = x + y
+	return total
+}
+
+func main() {
+	// Accepting return value in varaible
+	sum := add(20, 30)
+	fmt.Println(sum)
+}
+
+OUTPUT :
+
+50
+
+EXAMPLE 8 :
+
+package main
+
+import "fmt"
+
+func rectangle(l int, b int) (area int) {
+	var parameter int
+	parameter = 2 * (l + b)
+	fmt.Println("Parameter: ", parameter)
+
+	area = l * b
+	return // Return statement without specify variable name
+}
+
+func main() {
+	fmt.Println("Area: ", rectangle(20, 30))
+}
+
+OUTPUT :
+
+Parameter:  100
+Area:  600
+
+EXAMPLE 9 :
+
+package main
+
+import "fmt"
+
+func rectangle(l int, b int) (area int, parameter int) {
+	parameter = 2 * (l + b)
+	area = l * b
+	return // Return statement without specify variable name
+}
+
+func main() {
+	var a, p int
+	a, p = rectangle(20, 30)
+	fmt.Println("Area:", a)
+	fmt.Println("Parameter:", p)
+}
+
+OUTPUT :
+
+Area: 600
+Parameter: 100
+
+EXAMPLE 10 :
+
+package main
+
+import "fmt"
+
+func update(a *int, t *string) {
+	*a = *a + 10      // defrencing pointer address
+	*t = *t + " REDDY" // defrencing pointer address
+	return
+}
+
+func main() {
+	var age = 20
+	var text = "PRASANTHI"
+	fmt.Println("Before:", text, age)
+
+	update(&age, &text)
+
+	fmt.Println("After :", text, age)
+}
+
+OUTPUT :
+
+Before: PRASANTHI 20
+After : PRASANTHI REDDY 30
+
+EXAMPLE 11 :
+
+package main
+
+import "fmt"
+
+func main() {
+	l := 20
+	b := 30
+
+	func() {
+		var area int
+		area = l * b
+		fmt.Println(area)
+	}()
+}
+
+OUTPUT :
+
+600
+
+EXAMPLE 12 :
+
+package main
+
+import "fmt"
+
+func main() {
+	for i := 10.0; i < 100; i += 10.0 {
+		rad := func() float64 {
+			return i * 39.370
+		}()
+		fmt.Printf("%.2f Meter = %.2f Inch\n", i, rad)
+	}
+}
+
+OUTPUT :
+
+10.00 Meter = 393.70 Inch
+20.00 Meter = 787.40 Inch
+30.00 Meter = 1181.10 Inch
+40.00 Meter = 1574.80 Inch
+50.00 Meter = 1968.50 Inch
+60.00 Meter = 2362.20 Inch
+70.00 Meter = 2755.90 Inch
+80.00 Meter = 3149.60 Inch
+90.00 Meter = 3543.30 Inch
+
+EXAMPLE 13 :
+
+package main
+
+import "fmt"
+
+func sum(x, y int) int {
+	return x + y
+}
+func partialSum(x int) func(int) int {
+	return func(y int) int {
+		return sum(x, y)
+	}
+}
+func main() {
+	partial := partialSum(3)
+	fmt.Println(partial(7))
+}  
+
+OUTPUT :
+
+10
+
+EXAMPLE 14 :
+
+package main
+
+import "fmt"
+
+func squareSum(x int) func(int) func(int) int {
+	return func(y int) func(int) int {
+		return func(z int) int {
+			return x*x + y*y + z*z
+		}
+	}
+}
+func main() {
+	// 5*5 + 6*6 + 7*7
+	fmt.Println(squareSum(5)(6)(7))
+}
+
+OUTPUT :
+
+110
+
+EXAMPLE 15 :
+
+package main
+
+import "fmt"
+
+type First func(int) int
+type Second func(int) First
+
+func squareSum(x int) Second {
+	return func(y int) First {
+		return func(z int) int {
+			return x*x + y*y + z*z
+		}
+	}
+}
+
+func main() {
+	// 5*5 + 6*6 + 7*7
+	fmt.Println(squareSum(5)(6)(4))
+}
+
+OUTPUT :
+
+77
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
